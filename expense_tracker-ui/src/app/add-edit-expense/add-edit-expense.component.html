@@ -1,0 +1,36 @@
+<div class="container">
+  <form #myForm="ngForm" (ngSubmit) = "onSubmit(myForm)">
+    <div class="row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput placeholder="Ex. food" [(ngModel)]="expense.title" name="title">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input type="number" matInput placeholder="Ex. $10" [(ngModel)]="expense.money" name="money">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date</mat-label>
+        <input type="date" matInput [(ngModel)]="myDate" name="date">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Type</mat-label>
+        <input type="text" matInput placeholder="deduct/income" [(ngModel)]="expense.type" name="type">
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{data? 'Update': 'Save'}}</button>
+  </form>
+</div>
+
+<!-- [mat-dialog-close]="false": 
+  - This is a directive provided by Angular Material for use in a dialog. 
+  - It is binding the value false to the mat-dialog-close directive.
+  - When this button is clicked, it triggers the closing of the dialog, 
+    and it sends the value false as the result of the dialog. -->
